@@ -8,13 +8,17 @@ public class BrowserSetup {
 
 
     public static void main(String[] args) {
+
+        // Setting up chrome driver
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
+        // Getting a url using the get method
         driver.get("https://google.com");
+        String originalWindow = driver.getWindowHandle();
         System.out.println(driver.getCurrentUrl());
         System.out.println(driver.getTitle());
-
+        // navigating a site by using the navigate method
         driver.navigate().to("https://github.com");
 
         System.out.println(driver.getCurrentUrl());
@@ -23,6 +27,8 @@ public class BrowserSetup {
         driver.navigate().back();
         driver.navigate().forward();
         driver.navigate().refresh();
+
+        driver.switchTo().window(originalWindow);
 
         driver.close();
 
