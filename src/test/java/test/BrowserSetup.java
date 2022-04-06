@@ -1,7 +1,9 @@
 package test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BrowserSetup {
@@ -28,8 +30,14 @@ public class BrowserSetup {
         driver.navigate().forward();
         driver.navigate().refresh();
 
-        driver.switchTo().window(originalWindow);
+        // Get with of a browser
+        driver.manage().window().getSize().getWidth();
+        driver.manage().window().getSize().getWidth();
+        Dimension size = driver.manage().window().getSize();
+        System.out.println(size.getWidth());
+        System.out.println(size.getHeight());
 
+        // Clossing the brp
         driver.close();
 
     }
