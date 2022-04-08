@@ -2,6 +2,7 @@ package test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -37,8 +38,11 @@ public class BrowserSetup {
         System.out.println(size.getWidth());
         System.out.println(size.getHeight());
 
+        // maximize, minimize and full screen of window
+        driver.manage().window().setPosition(new Point(500, 100));
+
         // Clossing the brp
-        driver.close();
+        driver.quit();
 
     }
 
